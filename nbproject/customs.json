@@ -1,0 +1,14 @@
+{
+    "elements": {},
+    "attributes": {
+        "aria-expanded": {
+            "context": "button"
+        },
+        "width": {
+            "context": "input"
+        },
+        "type": {
+            "context": "form"
+        }
+    }
+}
