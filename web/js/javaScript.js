@@ -28,5 +28,8 @@
 
             $input.val(value);
         });
+        $(document).ready(function(){
+            $(".dropdown-toggle").dropdown();
+        });
     
 

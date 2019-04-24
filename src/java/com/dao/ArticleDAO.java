@@ -27,7 +27,7 @@ public class ArticleDAO {
     
     ///select active articles for customers
     
-     public ArrayList<Articles> ArticlesActiv() throws SQLException {
+     public static ArrayList<Articles> ArticlesActiv() throws SQLException {
         
         PreparedStatement preparedStatement = null;
         Connection con = null;
@@ -124,7 +124,7 @@ public class ArticleDAO {
     }
     
     ///select articles by categories
-     public ArrayList<Articles> ArticlesByCategories(int idcat) throws SQLException {
+     public static ArrayList<Articles> ArticlesByCategories(int idcat) throws SQLException {
         
         PreparedStatement preparedStatement = null;
         Connection con = null;

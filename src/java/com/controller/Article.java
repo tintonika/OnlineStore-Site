@@ -27,13 +27,16 @@ public class Article extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-          // ArticleDAO dao = new ArticleDAO();      
-        
-        request.setAttribute(CLE_DONNEE, ArticleDAO.ArticlesAll());
-          
-        
-         request.getRequestDispatcher("/index.jsp").forward(request, response);
-    
+            
+        int idCat = Integer.parseInt(request.getParameter("Id_Cat"));	
+        if(idCat!=0){
+            request.setAttribute(CLE_DONNEE, ArticleDAO.ArticlesByCategories(idCat));
+            request.getRequestDispatcher("/catalog.jsp").forward(request, response);
+        }else{
+           
+            request.setAttribute(CLE_DONNEE, ArticleDAO.ArticlesAll());
+            request.getRequestDispatcher("/catalog.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

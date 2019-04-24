@@ -7,6 +7,7 @@
 
  
 <%  
+ 
   ArrayList<Articles> listArticle = (ArrayList)request.getAttribute(Article.CLE_DONNEE);
 %>
 
@@ -60,9 +61,18 @@
          <!--end of carusel-->
     </div>
 <!--articles list--> 
+<a name="artList"></a>
+<div class="btn-group" role="group" aria-label="Basic example">
+        <a type="button" class="btn btn-outline-secondary" name="All" href="/article?Id_Cat=<%=0%>">All</a>
+        <a type="button" class="btn btn-outline-secondary" name="Mugs" href="/article?Id_Cat=<%=1%>">Mugs</a>
+        <a type="button" class="btn btn-outline-secondary" name="Candleholde" href="/article?Id_Cat=<%=2%>">Candleholde</a>
+        <a type="button" class="btn btn-outline-secondary" name="Bells" href="/article?Id_Cat=<%=3%>">Bells</a>
+        <a type="button" class="btn btn-outline-secondary" name="PiggyBanks" href="/article?Id_Cat=<%=4%>">PiggyBanks</a>
+</div>
 <!--<div class="tbody"> -->
     <div class="row  w-100 mx-auto">
-    <a name="list"></a>
+      
+    
     
     <%
         if(listArticle!=null){
@@ -84,6 +94,6 @@
     %> 
     </div>
 <!--</div> -->
-
+<script src="js/javaScript.js"></script>
     </body>
 </html>
