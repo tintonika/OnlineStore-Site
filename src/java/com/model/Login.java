@@ -9,10 +9,18 @@ public class Login {
     private String Password;
     private String Name;
     private String Adresse;
-    private int Telephone;
+    private long Telephone;
 
-    public Login(int ID, String Login, String Password, String Name, String Adresse, int Telephone) {
+    public Login(int ID, String Login, String Password, String Name, String Adresse, long Telephone) {
         this.ID = ID;
+        this.Login = Login;
+        this.Password = Password;
+        this.Name = Name;
+        this.Adresse = Adresse;
+        this.Telephone = Telephone;
+    }
+
+    public Login(String Login, String Password, String Name, String Adresse, long Telephone) {
         this.Login = Login;
         this.Password = Password;
         this.Name = Name;
@@ -60,11 +68,11 @@ public class Login {
         this.Adresse = Adresse;
     }
 
-    public int getTelephone() {
+    public long getTelephone() {
         return Telephone;
     }
 
-    public void setTelephone(int Telephone) {
+    public void setTelephone(long Telephone) {
         this.Telephone = Telephone;
     }
 

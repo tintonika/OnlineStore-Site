@@ -13,10 +13,10 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link" href="#">Log In</a>
+                <a class="nav-link" href="logIn.jsp">Log In</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1">Sign In</a>
+                <a class="nav-link" href="registration.jsp" tabindex="-1">Sign In</a>
             </li>
          </ul>  
    

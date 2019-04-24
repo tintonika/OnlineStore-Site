@@ -1,3 +1,8 @@
+<%-- 
+    Document   : login
+    Created on : 15 avr. 2019, 14:58:27
+    Author     : Tatiyana
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
  <jsp:include page="head.jsp" />
@@ -7,9 +12,18 @@
     <body>
         <div class="row">
             <div class="col-sm-3">
+           
+            </div>
+         <div class="col-sm-4 alert-danger ">
+             Vous n’êtes pas un utilisateur valide!
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+               
             </div>
             <div class="col-sm-4">
-                <form action="logIn" type="POST">
+                <form action="login" type="post">
                     <div class="form-group">
                         <label for="nom">Email address</label>
                         <input type="email" class="form-control" id="nom" name="nom" aria-describedby="emailHelp" placeholder="Enter email">

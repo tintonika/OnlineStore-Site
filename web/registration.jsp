@@ -9,10 +9,10 @@
             <div class="col-sm-3">
             </div>
             <div class="col-sm-4">
-                <form action="login" type="POST">
+                <form action="registrationUser" type="POST">
                     <div class="form-group">
                         <label for="login">Email address</label>
-                        <input type="email" class="form-control" id="login" name="nom" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="email" class="form-control" id="login" name="login" aria-describedby="emailHelp" placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
@@ -36,7 +36,9 @@
                     </div>
                     <div>
                         <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
                 </form>
+                <div>
                         <button type="submit" class="btn btn-secondary">Reset</button>
                         <button type="submit" class="btn btn-secondary">Exit</button>
                     </div>

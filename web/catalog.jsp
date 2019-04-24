@@ -6,7 +6,6 @@
 
  
 <%  
- 
   ArrayList<Articles> listArticle = (ArrayList)request.getAttribute(Article.CLE_DONNEE);
 %>
 

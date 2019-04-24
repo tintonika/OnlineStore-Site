@@ -1,13 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.controller;
 
-
+import static com.controller.LogIn.CLE_DONNEE;
 import com.dao.ArticleDAO;
 import com.dao.LoginDAO;
+import com.model.Articles;
+import com.model.Login;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -18,38 +16,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LogIn extends HttpServlet {
-    public static String CLE_DONNEE="to-to";
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+public class RegistrationUser extends HttpServlet {
+ 
+      protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");         
         
-        try (PrintWriter out = response.getWriter()) {
-              String nom = request.getParameter("nom");
-        String password = request.getParameter("password");
+String Login = request.getParameter("login");
+String Password = request.getParameter("password");
+String Name = request.getParameter("nom");
+String Adresse = request.getParameter("address");
+int Telephone = Integer.parseInt(request.getParameter("tel"));
+                
+Login newUser = new Login(Login,Password,Name,Adresse,Telephone ); 
+
+                 LoginDAO dao = new LoginDAO();                
+           
+                dao.insertUser(newUser);                
+               
+request.getRequestDispatcher("logIn.jsp").forward(request, response);
         
-        if (password=="" || nom==""){
-          request.getRequestDispatcher("loginError.jsp").include(request,response);                 
-        } else {
-            LoginDAO dao = new LoginDAO();
-            boolean res=dao.verification(nom, password);
-   //         String s1=Boolean.toString(res);
-   //         out.println("******"+s1);
-    //        request.getRequestDispatcher("adminPanel.jsp").include(request,response);
-            if(res){
-                 if (ArticleDAO.ArticlesAll()!=null) {
-                request.setAttribute(CLE_DONNEE, ArticleDAO.ArticlesAll());   
-                }
-                request.getRequestDispatcher("/catalog.jsp").forward(request,response);
-            }else{
-                request.getRequestDispatcher("/loginError.jsp").include(request,response); 
-            }    
-    
     }
-        }
-    }
-
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -65,7 +52,7 @@ public class LogIn extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistrationUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -83,7 +70,7 @@ public class LogIn extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistrationUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
