@@ -60,8 +60,8 @@
          <!--end of carusel-->
     </div>
 <!--articles list--> 
-<div class="tbody"> 
-    <div class="row w-100 mr-auto">
+<!--<div class="tbody"> -->
+    <div class="row  w-100 mx-auto">
     <a name="list"></a>
     
     <%
@@ -71,9 +71,9 @@
     
           <div class="card-sm-4">
             <div class="card-body">
-              <h3 class="card-title"><%= article.getName()%></h3>
-               <h5 class="card-title"><%= article.getNameCategory()%></h5>
-              <img alt="no image" src="img/<%= article.getPHOTO()%>" height="170" width="160"/>
+              <h5 class="card-title"><%= article.getName()%></h5>
+               <p class="card-title"><%= article.getNameCategory()%></p>
+              <img alt="no image" src="img/<%= article.getPHOTO()%>" height="420" width="380"/>
               <p class="card-text">Price : &nbsp;<%= article.getPRICE()%></p>
               <a href="/cart" ><img src="img/sh-cart-plus.png" width="50" height="50" ></a>
             </div>
@@ -83,7 +83,7 @@
             }}
     %> 
     </div>
-</div> 
+<!--</div> -->
 
     </body>
 </html>

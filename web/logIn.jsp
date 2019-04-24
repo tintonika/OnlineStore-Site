@@ -9,7 +9,7 @@
             <div class="col-sm-3">
             </div>
             <div class="col-sm-4">
-                <form action="login" type="post">
+                <form action="login" type="POST">
                     <div class="form-group">
                         <label for="nom">Email address</label>
                         <input type="email" class="form-control" id="nom" name="nom" aria-describedby="emailHelp" placeholder="Enter email">
