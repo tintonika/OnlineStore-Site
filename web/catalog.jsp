@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.controller.Article"%>
 <%@page import ="java.util.ArrayList" %>
@@ -7,6 +8,7 @@
  
 <%  
   ArrayList<Articles> listArticle = (ArrayList)request.getAttribute(Article.CLE_DONNEE);
+  HashMap<Articles,Integer> listPanier = (HashMap)request.getAttribute("PANIER");
 %>
 
 <!DOCTYPE html>
@@ -23,8 +25,9 @@
             <a type="button" class="btn btn-outline-secondary" style="width: 130px" name="Bells" href="/article?Id_Cat=<%=3%>">Bells</a>&nbsp;
             <a type="button" class="btn btn-outline-secondary" style="width: 130px" name="PiggyBanks" href="/article?Id_Cat=<%=4%>">PiggyBanks</a>
         </div>
-        <div class="d-flex justify-content-center pt-3">
-      
+        <form action="panier" type="post">
+        <div class="row  w-100  pt-3 justify-content-center ">
+            
     <%
         if(listArticle!=null){
             for (Articles article : listArticle) {
@@ -36,13 +39,15 @@
                 <h5 class="card-title"><%= article.getName()%></h5>
                 <p class="card-title"><%= article.getNameCategory()%></p>
                 <p class="card-text">Price : &nbsp;<%= article.getPRICE()%></p>
-                <a href="/cart" ><img src="img/sh-cart-plus.png" width="50" height="50" ></a>
+                <a href="/cart?Id_Art=<%= article.getID()%>" ><img src="img/sh-cart-plus.png" width="50" height="50" ></a>
             </div>&nbsp;
         </div>&nbsp;&nbsp;&nbsp;
 
     <%
         }}
     %> 
+   <div class="col-1"></div>
     </div>
+        </form>
     </body>
 </html>

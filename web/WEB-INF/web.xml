@@ -23,6 +23,10 @@
         <servlet-name>RegistrationUser</servlet-name>
         <servlet-class>com.controller.RegistrationUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Panier</servlet-name>
+        <servlet-class>com.controller.Panier</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LogIn</servlet-name>
         <url-pattern>/logIn</url-pattern>
@@ -42,6 +46,10 @@
     <servlet-mapping>
         <servlet-name>RegistrationUser</servlet-name>
         <url-pattern>/registrationUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Panier</servlet-name>
+        <url-pattern>/panier</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

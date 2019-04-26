@@ -15,12 +15,11 @@
 <html>
      <jsp:include page="head.jsp" />
     <body style="background-color:  #f4f6f6">
-     
+     <jsp:include page="navPanel.jsp" />
      <!--carusel-->
      <div class="bd-example">
-         <jsp:include page="navPanel.jsp" />
          <!--carusel-->
-         <div id="carouselExampleCaptions" class="carousel slide "  style="height: 610px" data-ride="carousel">
+         <div id="carouselExampleCaptions" class="carousel slide "  data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
@@ -60,15 +59,8 @@
         </div>
          <!--end of carusel-->
     </div>
-<!--articles list--> 
-<a name="artList"></a>
-<div class="btn-group" role="group" aria-label="Basic example">
-        <a type="button" class="btn btn-outline-secondary" name="All" href="/article?Id_Cat=<%=0%>">All</a>
-        <a type="button" class="btn btn-outline-secondary" name="Mugs" href="/article?Id_Cat=<%=1%>">Mugs</a>
-        <a type="button" class="btn btn-outline-secondary" name="Candleholde" href="/article?Id_Cat=<%=2%>">Candleholde</a>
-        <a type="button" class="btn btn-outline-secondary" name="Bells" href="/article?Id_Cat=<%=3%>">Bells</a>
-        <a type="button" class="btn btn-outline-secondary" name="PiggyBanks" href="/article?Id_Cat=<%=4%>">PiggyBanks</a>
-</div>
+
+
 <!--<div class="tbody"> -->
     <div class="row  w-100 mx-auto">
       

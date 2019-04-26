@@ -2,6 +2,7 @@
 package com.dao;
 
 import com.connection.connectionDB;
+import com.controller.Article;
 import com.model.Articles;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +24,7 @@ public class ArticleDAO {
     public static ArrayList<Articles> ArticleListActiv;
     public static ArrayList<Articles> ArticleListAll;
     public static ArrayList<Articles> ArticleListByCategories;
-    
+    public static ArrayList<Articles> ArticleListById;
     
     ///select active articles for customers
     
@@ -172,6 +173,44 @@ public class ArticleDAO {
         }
         return ArticleListByCategories;
     }
+    
+     ///select articles by ID
+     public static Articles ArticleById(int id) throws SQLException {        
+        PreparedStatement preparedStatement = null;
+        Connection con = null;
+        Articles Articl =null;      
+
+        try {
+            con = connectionDB.createConnection();
+            String query = "select * from articles "
+                    + "     where id = '"+ id +"'";
+            
+            preparedStatement = con.prepareStatement(query);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            
+                Articl.setID(rs.getInt("ID"));
+                Articl.setName(rs.getString("NAME"));
+                Articl.setID_CATEGORY(rs.getInt("ID_CATEGORY"));
+                Articl.setPRICE(rs.getInt("PRICE"));
+                Articl.setACTIVE(rs.getInt("ACTIVE"));
+                Articl.setQTY(rs.getInt("QTY"));
+                Articl.setPHOTO(rs.getString("PHOTO"));
+           
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return Articl;
+    }
+     
     
     ///insert into Articles
     

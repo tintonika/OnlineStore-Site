@@ -1,4 +1,9 @@
 
+<%@page import="java.util.Map"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.Set"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Hashtable"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.controller.Article"%>
 <%@page import ="java.util.ArrayList" %>
@@ -7,7 +12,7 @@
 
  
 <%  
-  ArrayList<Articles> listArticle = (ArrayList)request.getAttribute(Article.CLE_DONNEE);
+ HashMap<Articles,Integer> listPanier = (HashMap)request.getAttribute("PANIER");
 %>
 
 <!DOCTYPE html>
@@ -24,7 +29,7 @@
                             <th scope="col"></th>
                             <th scope="col">Photo</th>
                             <th scope="col">Title</th>
-                            <th scope="col">Category</th>
+                           
                             <th scope="col" style=" text-align: center" >Qty</th>
                             <th scope="col" style=" text-align: center">Price</th>
                             <th scope="col" style=" text-align: center">Delete</th>
@@ -32,16 +37,20 @@
                     </thead>
                     <tbody>
                         <%
-                            if(listArticle!=null){
-                                for (Articles article : listArticle) {
+                            if(listPanier!=null){
+                            Set set = listPanier.entrySet();
+                            Iterator iterator = set.iterator();
+                            while(iterator.hasNext()) {
+                               Map.Entry mentry = (Map.Entry)iterator.next();
+       
                         %>   
                         <tr>
                             <th scope="row" ></th>
                                 <td>
-                                    <img alt="no image" src="img/<%= article.getPHOTO()%>" height="70" width="60"/>
+                                    <img alt="no image" src="img/<%= ((Articles) mentry.getValue()).getPHOTO()%>" height="70" width="60"/>
                                 </td>
-                                <td><%= article.getName()%></td>
-                                <td><%= article.getNameCategory()%></td>
+                                <td><%= ((Articles) mentry.getValue()).getName()%></td>
+                                
                                 <td style=" text-align: center">
                                     <div class="quantity">
                                         <button class="minus-btn" type="button" name="button">
@@ -53,7 +62,7 @@
                                         </button>
                                     </div>
                                 </td>
-                                <td style=" text-align: center"><%= article.getPRICE()%></td>
+                                <td style=" text-align: center"><%= ((Articles) mentry.getValue()).getPRICE()%></td>
                                 <td style=" text-align: center">
                                     <img src="img/delete.png" style="width: 10px; height: 10px" />
                                 </td>
